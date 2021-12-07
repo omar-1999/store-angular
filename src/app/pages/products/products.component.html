@@ -1,0 +1,6 @@
+<div class="grid-flex">
+  <app-product
+  (addToCartClick)="addToCart($event)"
+  [product]="product"
+  *ngFor="let product of products"></app-product>
+</div>

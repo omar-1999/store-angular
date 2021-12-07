@@ -1,0 +1,52 @@
+<div class="container">
+  <form class="form item">
+    <!-- Nombre -->
+    <mat-form-field appearance="fill" class="form__element">
+      <mat-label>Enter name</mat-label>
+      <input matInput placeholder="Name" name="name" [(ngModel)]="model.name" required #name="ngModel">
+      <mat-error *ngIf="!name.valid || name.pristine">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+    <!-- Entrega -->
+    <mat-radio-group class="form__element">
+      <p>Choose an option:</p>
+      <mat-radio-button value="pickup" (change)="onPickupOrDelivery(false)">Pickup</mat-radio-button> <!-- recoger -->
+      <mat-radio-button value="delivery" (change)="onPickupOrDelivery(true)">Delivery</mat-radio-button>
+      <!-- entrega -->
+    </mat-radio-group>
+    <!-- Dirección de Envío -->
+    <mat-form-field appearance="fill" class="form__element">
+      <mat-label>Enter Shipping Address</mat-label>
+      <input matInput placeholder="Shipping Address" name="shippingAddress" [(ngModel)]="model.shippingAddress" required
+        #shippingAddress="ngModel">
+      <mat-error *ngIf="!shippingAddress.valid || shippingAddress.pristine">
+        Shipping Address is required
+      </mat-error>
+    </mat-form-field>
+    <!-- Ciudad -->
+    <mat-form-field appearance="fill" class="form__element">
+      <mat-label>Enter City</mat-label>
+      <input matInput placeholder="City" name="city" [(ngModel)]="model.city" required #city="ngModel">
+      <mat-error *ngIf="!city.valid || city.pristine">
+        City is required
+      </mat-error>
+    </mat-form-field>
+    <!-- Tienda -->
+    <mat-form-field appearance="fill" class="form__element">
+      <mat-select required [(ngModel)]="model.store" name="store" #ngModel>
+        <mat-option>-- None --</mat-option>
+        <mat-option [value]="items" *ngFor="let items of stores">{{ items.name }} {{ items.openingHours }}</mat-option>
+      </mat-select>
+      <mat-label>
+        <mat-icon>store</mat-icon> Store
+      </mat-label>
+    </mat-form-field>
+  </form>
+</div>
+
+<div class="container__button">
+  <button mat-raised-button color="primary" type="submit">
+    Checkout
+  </button>
+</div>

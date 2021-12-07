@@ -1,0 +1,13 @@
+<mat-card class="example-card">
+  <mat-card-title>{{ product.name }}</mat-card-title>
+  <mat-card-content>
+    <p>{{ product.description }}</p>
+    <p>{{ product.price | currency }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="onClick()">
+      BUY
+      <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
